@@ -1,0 +1,21 @@
+import type { Product } from "../types/store";
+export const products: Product[] = [
+  { id:1, name:"Taza Mágica Personalizada", category:"sublimacion", price:15000, originalPrice:20000,
+    image:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&h=500&fit=crop&auto=format",
+    rating:4.8, reviews:124, description:"Taza que cambia con líquidos calientes. Personalízala.", badge:"Más Vendido", gradient:"from-purple-500 to-pink-500" },
+  { id:2, name:"Kit Cumpleaños Premium", category:"cumpleanos", price:45000, originalPrice:55000,
+    image:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500&h=500&fit=crop&auto=format",
+    rating:4.9, reviews:87, description:"Kit completo y personalizable para tu celebración.", badge:"Premium", gradient:"from-pink-500 to-rose-500" },
+  { id:3, name:"Desayuno Romántico VIP", category:"desayunos", price:35000,
+    image:"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=500&h=500&fit=crop&auto=format",
+    rating:4.7, reviews:156, description:"Productos gourmet con presentación de lujo.", badge:"Nuevo", gradient:"from-orange-500 to-red-500" },
+  { id:4, name:"Tarjetas Holográficas", category:"tarjetas", price:25000,
+    image:"https://images.unsplash.com/photo-1541199249251-f713e6145474?w=500&h=500&fit=crop&auto=format",
+    rating:4.6, reviews:93, description:"Acabado premium con efecto holográfico.", badge:"Exclusivo", gradient:"from-cyan-500 to-blue-500" },
+  { id:5, name:"Flyer Interactivo QR", category:"flyers", price:18000,
+    image:"https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=500&fit=crop&auto=format",
+    rating:4.5, reviews:67, description:"Conecta con tu audiencia digital con QR.", badge:"Innovador", gradient:"from-green-500 to-emerald-500" },
+  { id:6, name:"Web App Empresarial", category:"web", price:350000, originalPrice:450000,
+    image:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=500&fit=crop&auto=format",
+    rating:5.0, reviews:34, description:"Aplicación web con IA y SEO.", badge:"Pro Max", gradient:"from-violet-500 to-purple-500" },
+];
