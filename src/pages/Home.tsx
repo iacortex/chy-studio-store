@@ -1,4 +1,5 @@
-import { useState } from "react";
+// src/pages/Home.tsx
+import { useMemo, useState } from "react";
 import AnimatedBackground from "../components/ui/AnimatedBackground";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -35,11 +36,17 @@ export default function Home() {
   };
   const toggleFavorite = (id: number) =>
     setFavorites((f) => (f.includes(id) ? f.filter((x) => x !== id) : [...f, id]));
-  const getTotal = () => cart.reduce((t, i) => t + i.price * i.quantity, 0);
+
+  const getTotal = useMemo(
+    () => () => cart.reduce((t, i) => t + i.price * i.quantity, 0),
+    [cart]
+  );
 
   const onWhatsApp = () => {
     if (cart.length === 0) return;
-    const lines = cart.map((i) => `${i.name} x${i.quantity} = $${(i.price * i.quantity).toLocaleString()}`).join("\n");
+    const lines = cart
+      .map((i) => `${i.name} x${i.quantity} = $${(i.price * i.quantity).toLocaleString()}`)
+      .join("\n");
     const msg = `¡Hola CHY STUDIO! 🎨\nMi pedido:\n${lines}\nTotal: $${getTotal().toLocaleString()}`;
     window.open(`https://wa.me/56900000000?text=${encodeURIComponent(msg)}`, "_blank");
   };

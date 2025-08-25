@@ -1,25 +1,36 @@
+// src/types/store.ts
 export type CategoryId =
-  | "todos" | "sublimacion" | "cumpleanos" | "desayunos" | "tarjetas" | "flyers" | "web";
+  | "todos"
+  | "sublimacion"
+  | "cumpleanos"
+  | "desayunos"
+  | "tarjetas"
+  | "flyers"
+  | "web"
+  // mugs:
+  | "fechas"
+  | "profesiones"
+  | "gamers"
+  | "frases"
+  | "humor"
+  | "animales"
+  | "cine_series"
+  | "anime"
+  | "minimalistas"
+  | "abstractos";
 
-export interface Category {
-  id: CategoryId;
-  name: string;
-  icon: "sparkles" | "zap" | string;
-  color: string;
-}
-
-export interface Product {
+export type Product = {
   id: number;
   name: string;
-  category: Exclude<CategoryId, "todos">;
+  category: CategoryId;
   price: number;
-  originalPrice?: number;
   image: string;
   rating: number;
   reviews: number;
   description: string;
   badge: string;
   gradient: string;
-}
+  originalPrice?: number;
+};
 
 export type CartItem = Product & { quantity: number };
