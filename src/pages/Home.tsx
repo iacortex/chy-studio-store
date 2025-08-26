@@ -1,6 +1,5 @@
-// src/pages/Home.tsx
 import { useMemo, useState } from "react";
-import AnimatedBackground from "../components/ui/AnimatedBackground";
+import StarryBackground from "../components/ui/StarryBackground"; // ⬅️ fondo de estrellas
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Hero from "../sections/Hero";
@@ -29,7 +28,8 @@ export default function Home() {
       return [...prev, { ...p, quantity: 1 }];
     });
   };
-  const removeFromCart = (id: number) => setCart((prev) => prev.filter((x) => x.id !== id));
+  const removeFromCart = (id: number) =>
+    setCart((prev) => prev.filter((x) => x.id !== id));
   const updateQuantity = (id: number, qty: number) => {
     if (qty <= 0) return removeFromCart(id);
     setCart((prev) => prev.map((x) => (x.id === id ? { ...x, quantity: qty } : x)));
@@ -52,8 +52,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
-      <AnimatedBackground />
+    <div className="min-h-screen text-white relative overflow-x-hidden">
+      {/* Fondo: estrellas dinámicas (sin imagen) */}
+      <StarryBackground className="fixed inset-0 -z-50" />
+
       <Header
         cartCount={cart.reduce((s, i) => s + i.quantity, 0)}
         onOpenCart={() => setIsCartOpen(true)}
