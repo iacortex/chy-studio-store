@@ -3,7 +3,8 @@ import { useMemo } from "react";
 import { Search, Filter, Sparkles, Zap, Star, ShoppingCart, Heart } from "lucide-react";
 import type { CategoryId, Product } from "../types/store";
 import { mugProducts } from "../data/products";
-import { mugCategories } from "../data/MugCategories";
+import { mugCategories } from "../data/mugCategories";
+
 
 type Props = {
   selectedCategory: CategoryId;
