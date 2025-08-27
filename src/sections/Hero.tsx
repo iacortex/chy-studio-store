@@ -1,6 +1,8 @@
-
 import MagneticButton from "../components/ui/MagneticButton";
 import { Rocket, ArrowRight, Phone, Sparkles, Zap } from "lucide-react";
+
+// Si quieres tu versión con OGL, cambia la línea de arriba por:
+import LightRays from "../components/ui/LightRays";
 
 export default function Hero() {
   const scrollToProducts = () => {
@@ -9,8 +11,28 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative py-32 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center relative z-10">
+    <section id="inicio" className="relative overflow-hidden">
+      {/* 🎯 Luces SOLO en el hero (debajo del contenido) */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#8B5CF6"       // morado CHY
+          raysSpeed={1.25}
+          lightSpread={0.9}
+          rayLength={1.3}
+          followMouse
+          mouseInfluence={0.12}
+          noiseAmount={0.05}
+          distortion={0.03}
+          className="
+            opacity-90
+            [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1)_0%,rgba(0,0,0,.75)_60%,rgba(0,0,0,0)_100%)]
+          "
+        />
+      </div>
+
+      {/* Contenido del hero */}
+      <div className="max-w-7xl mx-auto text-center relative z-10 py-32 px-4">
         <div className="mb-12">
           <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 mb-8">
             <Sparkles className="w-5 h-5 text-purple-400" />
